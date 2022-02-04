@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Picture of the Day App</string>
+    <string name="main_pic_description">It is a picture of the day</string>
+    <string name="empty_link_error_message">This link is empty</string>
+    <string name="error_load_data_message">Can\'t load data from server, please try again.</string>
+    <string name="try_again_btn_text">TRY AGAIN</string>
+    <string name="apod_input_hint">Find words on Wikipedia</string>
+    <string name="favourite">Favorite</string>
+    <string name="settings">Settings</string>
+    <string name="search">Search</string>
+    <string name="snackbar_favorites">Add to favorites</string>
+    <string name="snackbar_settings">Open settings screen</string>
+    <string name="snackbar_search">Found something</string>
+    <string name="chip_variant_today">TODAY</string>
+    <string name="chip_variant_yesterday">YESTERDAY</string>
+    <string name="chip_variant_day_before_yesterday">DAY BEFORE YESTERDAY</string>
 </resources>
