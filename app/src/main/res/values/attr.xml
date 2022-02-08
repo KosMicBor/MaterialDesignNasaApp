@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="buttonBGColor" format="reference" />
+    <attr name="frameColor" format="reference" />
+    <attr name="themeTextColor" format="reference" />
+    <attr name="pullLinesColor" format="reference" />
+    <attr name="fabColor" format="reference" />
+    <attr name="fabIconColor" format="reference" />
+    <attr name="chipsTextColor" format="reference" />
+    <attr name="inputFieldHintTextColor" format="reference" />
+    <attr name="strokeDisabledColor" format="reference" />
+    <attr name="inputFieldTextColor" format="reference" />
+    <attr name="statusBarColor" format="reference" />
+</resources>

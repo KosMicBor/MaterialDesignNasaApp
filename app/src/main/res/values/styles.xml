@@ -1,4 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="apod_description_title_style">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?themeTextColor</item>
+        <item name="android:layout_marginTop">@dimen/apod_desc_title_margin</item>
+        <item name="android:paddingStart">@dimen/padding_10dp</item>
+        <item name="android:paddingEnd">@dimen/padding_10dp</item>
+    </style>
+
+    <style name="settings_titles_style">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?themeTextColor</item>
+        <item name="android:layout_marginTop">@dimen/apod_desc_title_margin</item>
+        <item name="android:layout_margin">@dimen/theme_settings_title_margin</item>
+        <item name="android:textSize">@dimen/settings_title_size</item>
+    </style>
+
+    <style name="apod_description_text_style">
+        <item name="android:textColor">?themeTextColor</item>
+        <item name="android:paddingStart">@dimen/padding_10dp</item>
+        <item name="android:paddingEnd">@dimen/padding_10dp</item>
+    </style>
+
+    <style name="apod_description_view_style">
+        <item name="android:layout_width">@dimen/bottom_sheet_line_width</item>
+        <item name="android:layout_height">@dimen/bottom_sheet_line_height</item>
+        <item name="android:layout_marginTop">@dimen/bottomsheet_view_margin</item>
+        <item name="android:background">?pullLinesColor</item>
+    </style>
+
+    <style name="apod_fab_style">
+        <item name="android:backgroundTint">?fabColor</item>
+        <item name="srcCompat">@drawable/ic_baseline_add_24</item>
+        <item name="elevation">@dimen/_0dp</item>
+        <item name="tint">?fabIconColor</item>
+    </style>
+
+    <style name="apod_chip_choice" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:textColor">?chipsTextColor</item>
+        <item name="chipBackgroundColor">@color/chips_color</item>
+    </style>
+
+    <style name="settings_chip_choice" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="android:textColor">?chipsTextColor</item>
+        <item name="chipBackgroundColor">?colorPrimary</item>
+    </style>
+
+    <style name="progressbar_style">
+        <item name="android:indeterminateTint">?colorPrimary</item>
+    </style>
+
+    <style name="apod_input_text_layout_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/input_stroke_color</item>
+        <item name="android:textColorHint">?inputFieldHintTextColor</item>
+        <item name="endIconTint">?inputFieldHintTextColor</item>
+        <item name="hintTextColor">?inputFieldHintTextColor</item>
+        <item name="counterTextColor">?inputFieldHintTextColor</item>
+    </style>
+
+    <style name="apod_edit_text_style">
+        <item name="android:textColor">?inputFieldTextColor</item>
+    </style>
 </resources>

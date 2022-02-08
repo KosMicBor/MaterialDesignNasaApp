@@ -17,29 +17,30 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import coil.load
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.chip.Chip
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textview.MaterialTextView
 import kosmicbor.giftapp.pictureofthedayapp.MainActivity
 import kosmicbor.giftapp.pictureofthedayapp.R
-import kosmicbor.giftapp.pictureofthedayapp.databinding.PictureOfTheDayFragmentBinding
+import kosmicbor.giftapp.pictureofthedayapp.databinding.ApodFragmentBinding
 import kosmicbor.giftapp.pictureofthedayapp.utils.*
 import kosmicbor.giftapp.pictureofthedayapp.viewmodels.PictureOfTheDayViewModel
 
-class PictureOfTheDayFragment : Fragment(R.layout.picture_of_the_day_fragment) {
+class ApodFragment : Fragment(R.layout.apod_fragment) {
 
     companion object {
-        fun newInstance() = PictureOfTheDayFragment()
+        fun newInstance() = ApodFragment()
         private var isMain = true
-        private const val ONE_VALUE = 1
+        private const val TODAY = 0
+        private const val YESTERDAY = 1
+        private const val DAY_BEFORE_YESTERDAY = 2
     }
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
     private lateinit var bottomSheetTitle: MaterialTextView
     private lateinit var bottomSheetDescription: MaterialTextView
     private val viewModel: PictureOfTheDayViewModel by viewModels()
-    private val binding: PictureOfTheDayFragmentBinding by viewBinding(
-        PictureOfTheDayFragmentBinding::bind
+    private val binding: ApodFragmentBinding by viewBinding(
+        ApodFragmentBinding::bind
     )
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -62,9 +63,21 @@ class PictureOfTheDayFragment : Fragment(R.layout.picture_of_the_day_fragment) {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setChipsListener() {
-        binding.apodChipGroup.setOnCheckedChangeListener { chipGroup, position ->
-            chipGroup.findViewById<Chip>(position)?.let {
-                viewModel.sendRequest(getDate(position - ONE_VALUE))
+        binding.apodChipGroup.setOnCheckedChangeListener { chipGroup, _ ->
+
+            when (chipGroup.checkedChipId) {
+
+                R.id.apod_chip_today -> {
+                    viewModel.sendRequest(getDate(TODAY))
+                }
+
+                R.id.apod_chip_yesterday -> {
+                    viewModel.sendRequest(getDate(YESTERDAY))
+                }
+
+                R.id.apod_chip_before_yesterday -> {
+                    viewModel.sendRequest(getDate(DAY_BEFORE_YESTERDAY))
+                }
             }
         }
     }
@@ -76,22 +89,19 @@ class PictureOfTheDayFragment : Fragment(R.layout.picture_of_the_day_fragment) {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-
         when (item.itemId) {
             R.id.app_bar_favorites -> {
                 Snackbar.make(
                     binding.root,
                     getString(R.string.snackbar_favorites),
                     Snackbar.LENGTH_SHORT
-                ).show()
+                )
+                    .setAnchorView(binding.apodFab)
+                    .show()
             }
 
             R.id.app_bar_settings -> {
-                Snackbar.make(
-                    binding.root,
-                    getString(R.string.snackbar_settings),
-                    Snackbar.LENGTH_SHORT
-                ).show()
+                Router.openSettings(requireActivity().supportFragmentManager)
             }
 
             R.id.apod_appbar_search -> {
@@ -99,7 +109,9 @@ class PictureOfTheDayFragment : Fragment(R.layout.picture_of_the_day_fragment) {
                     binding.root,
                     getString(R.string.snackbar_search),
                     Snackbar.LENGTH_SHORT
-                ).show()
+                )
+                    .setAnchorView(binding.apodFab)
+                    .show()
             }
         }
 
@@ -185,10 +197,12 @@ class PictureOfTheDayFragment : Fragment(R.layout.picture_of_the_day_fragment) {
                         binding.root,
                         getString(R.string.empty_link_error_message),
                         Snackbar.LENGTH_SHORT
-                    ).show()
+                    )
+                        .setAnchorView(binding.apodFab)
+                        .show()
                 } else {
                     binding.apodMainImage.load(url) {
-                        lifecycle(this@PictureOfTheDayFragment)
+                        lifecycle(this@ApodFragment)
                         error(R.drawable.ic_baseline_broken_image)
                         placeholder(R.drawable.ic_baseline_broken_image)
                     }

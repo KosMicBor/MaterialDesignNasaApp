@@ -14,4 +14,11 @@
     <string name="chip_variant_today">TODAY</string>
     <string name="chip_variant_yesterday">YESTERDAY</string>
     <string name="chip_variant_day_before_yesterday">DAY BEFORE YESTERDAY</string>
+    <string name="fab_desc">ADD</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="chip_variant_light_theme">Light Theme</string>
+    <string name="chip_variant_dark_theme">Dark Theme</string>
+    <string name="chip_variant_alternative_theme">Alternative Theme</string>
+    <string name="theme_settings_title">Choose app theme</string>
+    <string name="theme_settings_apply_btn_text">apply</string>
 </resources>

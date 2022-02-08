@@ -1,16 +1,62 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.PictureOfTheDayApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.PictureOfTheDayAppLight" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/royal_blue</item>
         <item name="colorPrimaryVariant">@color/royal_blue_dark</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorSecondary">@color/light_blue</item>
+        <item name="colorSecondaryVariant">@color/blue</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/statusBarColor</item>
+        <item name="android:navigationBarColor" tools:targetApi="l">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
+        <item name="android:colorBackground">@color/white</item>
+        <item name="themeTextColor">@color/black</item>
+        <item name="pullLinesColor">@color/line_gray</item>
+        <item name="fabColor">@color/orange</item>
+        <item name="fabIconColor">@color/white</item>
+        <item name="chipsTextColor">@color/white</item>
+        <item name="inputFieldHintTextColor">?colorPrimary</item>
+        <item name="strokeDisabledColor">?colorPrimary</item>
+        <item name="inputFieldTextColor">@color/black</item>
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="statusBarColor">@color/royal_blue_dark</item>
+    </style>
+
+    <style name="Theme.PictureOfTheDayAppDark" parent="Theme.PictureOfTheDayAppLight">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/royal_blue_dark</item>
+        <item name="colorPrimaryVariant">@color/secondary_gray</item>
+        <!-- Secondary brand color. -->
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Customize your theme here. -->
+        <item name="android:colorBackground">@color/secondary_gray</item>
+        <item name="themeTextColor">@color/white</item>
+        <item name="pullLinesColor">@android:color/darker_gray</item>
+        <item name="fabColor">?colorOnSecondary</item>
+        <item name="fabIconColor">@color/black</item>
+        <item name="inputFieldHintTextColor">@color/white</item>
+        <item name="strokeDisabledColor">@color/white</item>
+        <item name="inputFieldTextColor">@color/white</item>
+        <item name="statusBarColor">@color/secondary_gray</item>
+    </style>
+
+    <style name="Theme.PictureOfTheDayAppAdvanced" parent="Theme.PictureOfTheDayAppLight">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/mars_prime</item>
+        <item name="colorPrimaryVariant">@color/mars_secondary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/mars_assert_dark</item>
+        <item name="colorSecondaryVariant">@color/mars_assert</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Customize your theme here. -->
+        <item name="android:colorBackground">@color/white</item>
+        <item name="pullLinesColor">@android:color/darker_gray</item>
+        <item name="statusBarColor">@color/mars_secondary</item>
     </style>
 </resources>

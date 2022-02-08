@@ -5,7 +5,8 @@
     android:id="@+id/apod_main_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.PictureOfTheDayFragment">
+    android:background="?android:windowBackground"
+    tools:context=".ui.main.ApodFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/apod_main_items_container"
@@ -14,9 +15,9 @@
 
         <ProgressBar
             android:id="@+id/apod_progressbar"
+            style="@style/progressbar_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:indeterminateTint="@color/royal_blue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -24,11 +25,12 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/apod_text_input_layout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/apod_input_text_layout_style"
             android:layout_width="@dimen/_0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_16dp"
             android:hint="@string/apod_input_hint"
+
             app:counterEnabled="true"
             app:counterMaxLength="30"
             app:endIconCheckable="true"
@@ -41,6 +43,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/apod_text_input_edit_text"
                 android:layout_width="match_parent"
+                style="@style/apod_edit_text_style"
                 android:layout_height="match_parent"
                 android:inputType="text" />
 
@@ -56,19 +59,22 @@
             app:singleSelection="true">
 
             <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:id="@+id/apod_chip_today"
+                style="@style/apod_chip_choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/chip_variant_today" />
 
             <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:id="@+id/apod_chip_yesterday"
+                style="@style/apod_chip_choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/chip_variant_yesterday" />
 
             <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:id="@+id/apod_chip_before_yesterday"
+                style="@style/apod_chip_choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/chip_variant_day_before_yesterday" />
@@ -102,11 +108,10 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/apod_fab"
+        style="@style/apod_fab_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/orange"
-        app:layout_anchor="@id/apod_bottom_appbar"
-        app:srcCompat="@drawable/ic_baseline_add_24"
-        app:tint="@color/bg_white" />
+        android:contentDescription="@string/fab_desc"
+        app:layout_anchor="@id/apod_bottom_appbar" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
