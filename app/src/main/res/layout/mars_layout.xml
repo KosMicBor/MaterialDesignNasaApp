@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mars_data_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mars_image_date"
+            style="@style/mars_data_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="mars_image_date" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mars_rover_id"
+            style="@style/mars_data_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mars_image_date"
+            tools:text="mars_rover_id" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mars_rover_name"
+            style="@style/mars_data_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mars_rover_id"
+            tools:text="mars_rover_name" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mars_rover_launch_date"
+            style="@style/mars_data_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/mars_rover_id"
+            tools:text="mars_rover_launch_date" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mars_rover_landing_date"
+            style="@style/mars_data_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/mars_rover_name"
+            tools:text="mars_rover_landing_date" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mars_camera_id"
+            style="@style/mars_data_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mars_rover_name"
+            tools:text="mars_camera_id" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mars_camera_full_name"
+            style="@style/mars_data_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mars_camera_id"
+            tools:text="mars_camera_full_name" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <kosmicbor.giftapp.pictureofthedayapp.utils.EquilateralImageView
+        android:id="@+id/mars_main_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/apod_image_margin"
+        android:contentDescription="@string/main_pic_description" />
+
+</LinearLayout>

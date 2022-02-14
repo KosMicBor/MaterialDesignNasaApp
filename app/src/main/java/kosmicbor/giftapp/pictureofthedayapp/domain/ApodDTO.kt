@@ -2,7 +2,7 @@ package kosmicbor.giftapp.pictureofthedayapp.domain
 
 import com.google.gson.annotations.SerializedName
 
-data class PictureOfTheDayDTO(
+data class ApodDTO(
     @field:SerializedName("copyright") val copyright: String?,
     @field:SerializedName("date") val date: String?,
     @field:SerializedName("explanation") val explanation: String?,
