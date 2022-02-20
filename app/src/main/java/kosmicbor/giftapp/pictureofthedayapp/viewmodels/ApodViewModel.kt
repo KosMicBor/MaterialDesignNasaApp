@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import kosmicbor.giftapp.pictureofthedayapp.BuildConfig
-import kosmicbor.giftapp.pictureofthedayapp.domain.ApodRepositoryImpl
-import kosmicbor.giftapp.pictureofthedayapp.domain.ApodDTO
+import kosmicbor.giftapp.pictureofthedayapp.domain.apod.ApodRepositoryImpl
+import kosmicbor.giftapp.pictureofthedayapp.domain.apod.ApodDTO
 import kosmicbor.giftapp.pictureofthedayapp.utils.AppState
 import retrofit2.Call
 import retrofit2.Callback

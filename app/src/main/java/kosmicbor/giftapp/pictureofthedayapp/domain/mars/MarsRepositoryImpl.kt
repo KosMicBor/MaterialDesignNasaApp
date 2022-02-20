@@ -1,4 +1,4 @@
-package kosmicbor.giftapp.pictureofthedayapp.domain
+package kosmicbor.giftapp.pictureofthedayapp.domain.mars
 
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient

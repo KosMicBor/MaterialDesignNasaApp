@@ -13,12 +13,12 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
 import kosmicbor.giftapp.pictureofthedayapp.R
 import kosmicbor.giftapp.pictureofthedayapp.databinding.FragmentApodBinding
-import kosmicbor.giftapp.pictureofthedayapp.domain.ApodDayData
-import kosmicbor.giftapp.pictureofthedayapp.domain.ApodDTO
+import kosmicbor.giftapp.pictureofthedayapp.domain.apod.ApodDayData
+import kosmicbor.giftapp.pictureofthedayapp.domain.apod.ApodDTO
 import kosmicbor.giftapp.pictureofthedayapp.utils.*
 import kosmicbor.giftapp.pictureofthedayapp.viewmodels.ApodViewModel
 
-class FragmentApod : Fragment(R.layout.fragment_apod) {
+class FragmentApod : Fragment(R.layout.fragment_apod_start) {
 
     companion object {
         fun newInstance() = FragmentApod()
@@ -74,7 +74,7 @@ class FragmentApod : Fragment(R.layout.fragment_apod) {
 
     private fun openWikipediaOnClick() {
         binding.apply {
-            apodTextInputLayout.setEndIconOnClickListener {
+            wikiButton.setOnClickListener {
                 startActivity(Intent(Intent.ACTION_VIEW).apply {
                     data =
                         Uri.parse(

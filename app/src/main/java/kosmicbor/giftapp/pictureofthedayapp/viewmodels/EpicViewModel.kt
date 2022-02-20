@@ -5,28 +5,35 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import kosmicbor.giftapp.pictureofthedayapp.BuildConfig
-import kosmicbor.giftapp.pictureofthedayapp.domain.EpicRepositoryImpl
-import kosmicbor.giftapp.pictureofthedayapp.domain.EpicDTO
+import kosmicbor.giftapp.pictureofthedayapp.domain.moon.SearchRepositoryImpl
+import kosmicbor.giftapp.pictureofthedayapp.domain.epic.EpicRepositoryImpl
+import kosmicbor.giftapp.pictureofthedayapp.domain.epic.EpicDTO
+import kosmicbor.giftapp.pictureofthedayapp.domain.moon.MoonDTO
 import kosmicbor.giftapp.pictureofthedayapp.utils.AppState
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class EpicViewModel(
-    private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData(),
-    private val repository: EpicRepositoryImpl = EpicRepositoryImpl()
+    private val liveDataEpic: MutableLiveData<AppState> = MutableLiveData(),
+    private val liveDataMoon: MutableLiveData<AppState> = MutableLiveData(),
+    private val epicRepository: EpicRepositoryImpl = EpicRepositoryImpl(),
+    private val repository: SearchRepositoryImpl = SearchRepositoryImpl()
 ) : ViewModel() {
 
-    fun getData(): LiveData<AppState> = liveDataToObserve
+    private val apiKey = BuildConfig.NASA_API_KEY
 
-    fun sendRequest() {
-        liveDataToObserve.value = AppState.Loading(null)
-        val apiKey = BuildConfig.NASA_API_KEY
+    fun getEpicData(): LiveData<AppState> = liveDataEpic
+
+    fun getMoonData(): LiveData<AppState> = liveDataMoon
+
+    fun sendEpicRequest() {
+        liveDataEpic.value = AppState.Loading(null)
 
         if (apiKey.isBlank()) {
             AppState.Error(Throwable("Yuo need the API key!"))
         } else {
-            repository.getEpicRetrofit()
+            epicRepository.getEpicRetrofit()
                 .getEPIC(apiKey).enqueue(object : Callback<List<EpicDTO>> {
 
                     override fun onResponse(
@@ -35,25 +42,60 @@ class EpicViewModel(
                     ) {
                         if (response.isSuccessful) {
                             response.body()?.apply {
-                                liveDataToObserve.value = AppState.Success(this)
+                                liveDataEpic.value = AppState.Success(this)
                             }
 
                         } else {
                             val message = response.message()
 
                             if (message.isNotEmpty()) {
-                                liveDataToObserve.value = AppState.Error(Throwable(message))
+                                liveDataEpic.value = AppState.Error(Throwable(message))
                             } else {
-                                liveDataToObserve.value =
+                                liveDataEpic.value =
                                     AppState.Error(Throwable("Undefined error!"))
                             }
                         }
                     }
 
                     override fun onFailure(call: Call<List<EpicDTO>>, t: Throwable) {
-                        liveDataToObserve.value = AppState.Error(t)
+                        liveDataEpic.value = AppState.Error(t)
                     }
                 })
         }
+    }
+
+    fun sendMoonRequest(request: String, mediaType: String, page: String) {
+        liveDataMoon.value = AppState.Loading(null)
+
+        repository.getMoonRetrofit()
+            .getSearchResult(request, mediaType, page)
+            .enqueue(object : Callback<MoonDTO> {
+                override fun onResponse(
+                    call: Call<MoonDTO>,
+                    response: Response<MoonDTO>
+                ) {
+                    if (response.isSuccessful) {
+                        response.body()?.apply {
+                            liveDataMoon.value = AppState.Success(this)
+                        }
+
+                    } else {
+                        val message = response.message()
+
+                        if (message.isNotEmpty()) {
+                            liveDataMoon.value = AppState.Error(Throwable(message))
+                        } else {
+                            liveDataMoon.value =
+                                AppState.Error(Throwable("Undefined error!"))
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<MoonDTO>, t: Throwable) {
+                    liveDataMoon.value = AppState.Error(t)
+                }
+
+            })
+
     }
 }

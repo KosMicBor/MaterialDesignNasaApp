@@ -1,4 +1,4 @@
-package kosmicbor.giftapp.pictureofthedayapp.domain
+package kosmicbor.giftapp.pictureofthedayapp.domain.apod
 
 import com.google.gson.annotations.SerializedName
 

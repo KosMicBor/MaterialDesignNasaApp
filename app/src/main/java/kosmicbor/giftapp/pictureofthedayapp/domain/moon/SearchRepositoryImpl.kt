@@ -1,4 +1,4 @@
-package kosmicbor.giftapp.pictureofthedayapp.domain
+package kosmicbor.giftapp.pictureofthedayapp.domain.moon
 
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
@@ -6,17 +6,17 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ApodRepositoryImpl {
-    private val baseURL = "https://api.nasa.gov/"
+class SearchRepositoryImpl {
+    private val baseURL = "https://images-api.nasa.gov"
 
-    fun getAPODRetrofit(): ApodRepository {
-        val APODRetrofit = Retrofit.Builder()
+    fun getMoonRetrofit(): SearchRepository {
+        val moonRetrofit = Retrofit.Builder()
             .baseUrl(baseURL)
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
             .client(createHttpClient())
             .build()
 
-        return APODRetrofit.create(ApodRepository::class.java)
+        return moonRetrofit.create(SearchRepository::class.java)
     }
 
     private fun createHttpClient(): OkHttpClient {

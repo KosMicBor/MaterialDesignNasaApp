@@ -9,7 +9,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.snackbar.Snackbar
 import kosmicbor.giftapp.pictureofthedayapp.R
 import kosmicbor.giftapp.pictureofthedayapp.databinding.FragmentMarsBinding
-import kosmicbor.giftapp.pictureofthedayapp.domain.MarsDTO
+import kosmicbor.giftapp.pictureofthedayapp.domain.mars.MarsDTO
 
 import kosmicbor.giftapp.pictureofthedayapp.utils.AppState
 import kosmicbor.giftapp.pictureofthedayapp.utils.showSnackBar

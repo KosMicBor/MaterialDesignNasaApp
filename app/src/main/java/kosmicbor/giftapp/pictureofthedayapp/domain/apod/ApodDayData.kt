@@ -1,4 +1,4 @@
-package kosmicbor.giftapp.pictureofthedayapp.domain
+package kosmicbor.giftapp.pictureofthedayapp.domain.apod
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

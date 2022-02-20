@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.google.android.material.textview.MaterialTextView
 import kosmicbor.giftapp.pictureofthedayapp.R
-import kosmicbor.giftapp.pictureofthedayapp.domain.MarsPhoto
+import kosmicbor.giftapp.pictureofthedayapp.domain.mars.MarsPhoto
 import kosmicbor.giftapp.pictureofthedayapp.utils.EquilateralImageView
 
 class MarsViewPagerAdapter : RecyclerView.Adapter<MarsPagerViewHolder>() {

@@ -27,4 +27,13 @@
     <string name="moon_pic">Moon Images</string>
     <string name="mars_pic">Mars Images</string>
     <string name="mars_screen_description">Images gathered by NASA\'s Curiosity, Opportunity, and Spirit rovers on Mars</string>
+    <string name="epic_manual_text">Push the action button to swipe between Earth and Moon Images</string>
+    <string name="epic_toolbar_title">Earth and Moon Gallery</string>
+    <string name="image_date_label">Image date:</string>
+    <string name="rover_id_label">Rover ID:</string>
+    <string name="rover_name_label">Rover name:</string>
+    <string name="rover_launch_date_label">Rover launch date:</string>
+    <string name="rover_landing_date_label">Rover landing date:</string>
+    <string name="camera_id_label">Camera ID:</string>
+    <string name="camera_full_name_label">Camera full name:</string>
 </resources>

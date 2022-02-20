@@ -10,7 +10,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.textview.MaterialTextView
 import kosmicbor.giftapp.pictureofthedayapp.R
 import kosmicbor.giftapp.pictureofthedayapp.databinding.FragmentApodImageBinding
-import kosmicbor.giftapp.pictureofthedayapp.domain.ApodDayData
+import kosmicbor.giftapp.pictureofthedayapp.domain.apod.ApodDayData
 
 class FragmentApodImage : Fragment(R.layout.fragment_apod_image) {
 

@@ -31,6 +31,8 @@
         <item name="apodTabBackground">@color/white</item>
         <item name="apodTabTextColor">?colorPrimary</item>
         <item name="apodTabIndicatorColor">?colorPrimary</item>
+        <item name="fabColor">?colorSecondary</item>
+        <item name="fabIconColor">?colorOnSecondary</item>
     </style>
 
     <style name="Theme.PictureOfTheDayAppDark" parent="Theme.PictureOfTheDayAppLight">
@@ -50,6 +52,8 @@
         <item name="apodTabBackground">?colorPrimaryVariant</item>
         <item name="apodTabTextColor">@color/white</item>
         <item name="apodTabIndicatorColor">@color/white</item>
+        <item name="fabColor">?colorOnSecondary</item>
+        <item name="fabIconColor">@color/black</item>
     </style>
 
     <style name="Theme.PictureOfTheDayAppAdvanced" parent="Theme.PictureOfTheDayAppLight">
@@ -64,5 +68,6 @@
         <!-- Customize your theme here. -->
         <item name="pullLinesColor">@android:color/darker_gray</item>
         <item name="statusBarColor">@color/mars_secondary</item>
+        <item name="fabColor">@color/light_blue</item>
     </style>
 </resources>
