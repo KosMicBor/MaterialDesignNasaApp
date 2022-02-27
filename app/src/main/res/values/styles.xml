@@ -19,6 +19,13 @@
         <item name="android:textSize">@dimen/settings_title_size</item>
     </style>
 
+    <style name="earth_titles_style">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?themeTextColor</item>
+        <item name="android:padding">@dimen/epic_title_padding</item>
+        <item name="android:textSize">@dimen/settings_title_size</item>
+    </style>
+
     <style name="apod_description_text_style">
         <item name="android:textColor">?themeTextColor</item>
         <item name="android:paddingStart">@dimen/padding_10dp</item>
@@ -30,13 +37,6 @@
         <item name="android:layout_height">@dimen/bottom_sheet_line_height</item>
         <item name="android:layout_marginTop">@dimen/bottomsheet_view_margin</item>
         <item name="android:background">?pullLinesColor</item>
-    </style>
-
-    <style name="apod_fab_style">
-        <item name="android:backgroundTint">?fabColor</item>
-        <item name="srcCompat">@drawable/ic_baseline_add_24</item>
-        <item name="elevation">@dimen/_0dp</item>
-        <item name="tint">?fabIconColor</item>
     </style>
 
     <style name="apod_chip_choice" parent="Widget.MaterialComponents.Chip.Choice">
@@ -64,4 +64,43 @@
     <style name="apod_edit_text_style">
         <item name="android:textColor">?inputFieldTextColor</item>
     </style>
+
+    <style name="bottom_nav_view_style" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="android:background">?bnvBackgroundColor</item>
+        <item name="itemIconTint">@color/bnv_item_color</item>
+        <item name="itemTextColor">@color/bnv_item_color</item>
+    </style>
+
+    <style name="apod_tab_style" parent="Widget.Material3.TabLayout.Secondary">
+        <item name="android:background">?apodTabBackground</item>
+        <item name="tabTextColor">?apodTabTextColor</item>
+        <item name="tabIndicatorColor">?apodTabIndicatorColor</item>
+    </style>
+
+    <style name="mars_data_text_style">
+        <item name="android:textColor">?colorOnSecondary</item>
+    </style>
+
+    <style name="mars_titles_style">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?themeTextColor</item>
+        <item name="android:padding">@dimen/mars_title_padding</item>
+        <item name="android:textSize">@dimen/settings_title_size</item>
+    </style>
+
+    <style name="epic_indicator">
+        <item name="android:layout_height">@dimen/indicator_heignt</item>
+        <item name="ci_drawable">?colorOnSecondary</item>
+    </style>
+
+    <style name="mars_indicator">
+        <item name="android:layout_height">@dimen/indicator_heignt</item>
+        <item name="ci_drawable">?colorOnSecondary</item>
+        <item name="ci_margin">@dimen/indicator_custom_margin</item>
+        <item name="android:layout_margin">@dimen/margin_16dp</item>
+    </style>
+
+    <dimen name="mars_title_padding">8dp</dimen>
+    <dimen name="indicator_heignt">48dp</dimen>
+    <dimen name="indicator_custom_margin">3dp</dimen>
 </resources>

@@ -21,4 +21,10 @@
     <string name="chip_variant_alternative_theme">Alternative Theme</string>
     <string name="theme_settings_title">Choose app theme</string>
     <string name="theme_settings_apply_btn_text">apply</string>
+    <string name="apod">APOD</string>
+    <string name="bottom_menu_item_error">Wrong navigation menu item id</string>
+    <string name="earth_pic">Earth Images</string>
+    <string name="moon_pic">Moon Images</string>
+    <string name="mars_pic">Mars Images</string>
+    <string name="mars_screen_description">Images gathered by NASA\'s Curiosity, Opportunity, and Spirit rovers on Mars</string>
 </resources>

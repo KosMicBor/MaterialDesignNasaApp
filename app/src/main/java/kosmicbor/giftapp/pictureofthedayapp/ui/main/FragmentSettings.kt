@@ -10,11 +10,11 @@ import kosmicbor.giftapp.pictureofthedayapp.R
 import kosmicbor.giftapp.pictureofthedayapp.databinding.FragmentSettingsBinding
 import kosmicbor.giftapp.pictureofthedayapp.domain.Theme
 
-class SettingsFragment : Fragment(R.layout.fragment_settings) {
+class FragmentSettings : Fragment(R.layout.fragment_settings) {
 
     companion object {
         @JvmStatic
-        fun newInstance() = SettingsFragment()
+        fun newInstance() = FragmentSettings()
         private const val APP_PREFERENCES = "APP_PREFERENCES"
         private const val APP_PREFERENCES_NAME = "THEME"
         private lateinit var sharedPreferences: SharedPreferences
@@ -42,7 +42,6 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
     private fun setResultButtonListener() {
         binding.themeSettingsBtn.setOnClickListener {
             requireActivity().recreate()
-            activity?.supportFragmentManager?.popBackStack()
         }
     }
 
