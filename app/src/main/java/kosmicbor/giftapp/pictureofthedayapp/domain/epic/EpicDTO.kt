@@ -1,6 +1,9 @@
-package kosmicbor.giftapp.pictureofthedayapp.domain
+package kosmicbor.giftapp.pictureofthedayapp.domain.epic
 
 import com.google.gson.annotations.SerializedName
+import kosmicbor.giftapp.pictureofthedayapp.domain.mars.CentroidCoordinates
+import kosmicbor.giftapp.pictureofthedayapp.domain.mars.Position
+import kosmicbor.giftapp.pictureofthedayapp.domain.mars.Quaternions
 
 data class EpicDTO(
     @field:SerializedName("identifier") val identifier: String?,

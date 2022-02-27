@@ -1,4 +1,4 @@
-package kosmicbor.giftapp.pictureofthedayapp.domain
+package kosmicbor.giftapp.pictureofthedayapp.domain.mars
 
 data class CentroidCoordinates(
     val lat: Double?,

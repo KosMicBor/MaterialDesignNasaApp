@@ -6,8 +6,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import kosmicbor.giftapp.pictureofthedayapp.BuildConfig
-import kosmicbor.giftapp.pictureofthedayapp.domain.MarsDTO
-import kosmicbor.giftapp.pictureofthedayapp.domain.MarsRepositoryImpl
+import kosmicbor.giftapp.pictureofthedayapp.domain.mars.MarsDTO
+import kosmicbor.giftapp.pictureofthedayapp.domain.mars.MarsRepositoryImpl
 import kosmicbor.giftapp.pictureofthedayapp.utils.AppState
 import retrofit2.Call
 import retrofit2.Callback

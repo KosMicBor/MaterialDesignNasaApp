@@ -32,8 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@+id/apod_text_input_layout"
-            app:layout_constraintEnd_toStartOf="@id/apod_text_input_layout"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/apod_text_input_layout"
             app:srcCompat="@drawable/ic_wikipedia" />
 
@@ -46,7 +45,7 @@
             app:counterEnabled="true"
             app:counterMaxLength="30"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/wiki_button"
+            app:layout_constraintStart_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -78,6 +77,5 @@
             app:layout_constraintTop_toBottomOf="@id/apod_tab_layout" />
 
     </androidx.constraintlayout.motion.widget.MotionLayout>
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,4 +1,4 @@
-package kosmicbor.giftapp.pictureofthedayapp.domain
+package kosmicbor.giftapp.pictureofthedayapp.domain.mars
 
 import retrofit2.Call
 import retrofit2.http.GET

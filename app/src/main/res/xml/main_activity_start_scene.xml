@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <ConstraintSet android:id="@+id/start" />
+
+    <ConstraintSet
+        android:id="@+id/end"
+        app:deriveConstraintsFrom="@id/start">
+        <Constraint android:id="@id/start_screen">
+            <Layout motion:layout_constraintStart_toEndOf="parent" />
+            <PropertySet android:visibility="gone" />
+        </Constraint>
+
+        <Constraint android:id="@id/container">
+            <PropertySet android:visibility="visible" />
+        </Constraint>
+
+        <Constraint android:id="@id/bottom_navigation">
+            <PropertySet android:visibility="visible" />
+        </Constraint>
+
+    </ConstraintSet>
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@+id/start"
+        app:duration="1000">
+        <OnSwipe
+            motion:dragDirection="dragLeft"
+            motion:targetId="@id/start_screen" />
+    </Transition>
+</MotionScene>
