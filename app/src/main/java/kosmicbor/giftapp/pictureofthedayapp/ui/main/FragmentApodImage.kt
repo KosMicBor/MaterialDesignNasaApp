@@ -6,11 +6,14 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import coil.load
+import coil.request.ImageRequest
+import coil.request.ImageResult
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.textview.MaterialTextView
 import kosmicbor.giftapp.pictureofthedayapp.R
 import kosmicbor.giftapp.pictureofthedayapp.databinding.FragmentApodImageBinding
 import kosmicbor.giftapp.pictureofthedayapp.domain.apod.ApodDayData
+import kosmicbor.giftapp.pictureofthedayapp.utils.zoomImage
 
 class FragmentApodImage : Fragment(R.layout.fragment_apod_image) {
 
@@ -19,6 +22,7 @@ class FragmentApodImage : Fragment(R.layout.fragment_apod_image) {
     }
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
+    private var isExpanded: Boolean = false
     private lateinit var bottomSheetTitle: MaterialTextView
     private lateinit var bottomSheetDescription: MaterialTextView
     private val binding: FragmentApodImageBinding by viewBinding(FragmentApodImageBinding::bind)
@@ -40,7 +44,30 @@ class FragmentApodImage : Fragment(R.layout.fragment_apod_image) {
                         lifecycle(this@FragmentApodImage)
                         error(R.drawable.ic_baseline_broken_image)
                         placeholder(R.drawable.ic_baseline_broken_image)
+                        listener(object : ImageRequest.Listener {
+                            override fun onStart(request: ImageRequest) {
+                                binding.apodImageShimmer.apply {
+                                    showShimmer(true)
+                                }
+
+                                super.onStart(request)
+                            }
+
+                            override fun onSuccess(request: ImageRequest, metadata: ImageResult.Metadata) {
+                                binding.apodImageShimmer.apply {
+                                    stopShimmer()
+                                    hideShimmer()
+                                }
+                                super.onSuccess(request, metadata)
+                            }
+                        })
                     }
+
+                    apodMainImage.setOnClickListener {
+                        isExpanded = !isExpanded
+                        zoomImage(apodMainImage, apodFragmentImageContainer, isExpanded)
+                    }
+
                     bottomSheetTitle.text = it.title
                     bottomSheetDescription.text = it.description
                 }

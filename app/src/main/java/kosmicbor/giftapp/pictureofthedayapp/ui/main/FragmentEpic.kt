@@ -2,11 +2,13 @@ package kosmicbor.giftapp.pictureofthedayapp.ui.main
 
 import android.os.Build
 import android.os.Bundle
+import android.transition.Fade
 import android.util.Log
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.transition.TransitionManager
 import androidx.viewpager2.widget.ViewPager2
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.snackbar.Snackbar
@@ -83,8 +85,11 @@ class FragmentEpic : Fragment(R.layout.fragment_epic) {
         when (data) {
             is AppState.Success<*> -> {
 
-                binding.epicProgressbar.viewHide()
-
+                binding.apply {
+                    epicProgressbar.viewHide()
+                    epicViewPager.viewShow()
+                    epicIndicator.viewShow()
+                }
                 val urlList = mutableListOf<String>()
                 val serverResponseData = data.value as MoonDTO
                 val items = serverResponseData.collection.items
@@ -121,7 +126,11 @@ class FragmentEpic : Fragment(R.layout.fragment_epic) {
             }
 
             is AppState.Loading -> {
-                binding.epicProgressbar.viewShow()
+                binding.apply {
+                    epicProgressbar.viewShow()
+                    epicViewPager.viewHide()
+                    epicIndicator.viewHide()
+                }
             }
         }
     }
@@ -131,7 +140,12 @@ class FragmentEpic : Fragment(R.layout.fragment_epic) {
         when (data) {
             is AppState.Success<*> -> {
 
-                binding.epicProgressbar.viewHide()
+                binding.apply {
+                    epicProgressbar.viewHide()
+                    epicViewPager.viewShow()
+                    epicIndicator.viewShow()
+
+                }
 
                 val urlList = mutableListOf<String>()
                 val serverResponseData = data.value as List<EpicDTO>
@@ -172,7 +186,11 @@ class FragmentEpic : Fragment(R.layout.fragment_epic) {
             }
 
             is AppState.Loading -> {
-                binding.epicProgressbar.viewShow()
+                binding.apply {
+                    epicProgressbar.viewShow()
+                    epicViewPager.viewHide()
+                    epicIndicator.viewHide()
+                }
             }
         }
     }

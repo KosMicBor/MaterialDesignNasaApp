@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import kosmicbor.giftapp.pictureofthedayapp.R
 import kosmicbor.giftapp.pictureofthedayapp.databinding.FragmentSettingsBinding
-import kosmicbor.giftapp.pictureofthedayapp.domain.Theme
+import kosmicbor.giftapp.pictureofthedayapp.domain.AppTheme
 
 class FragmentSettings : Fragment(R.layout.fragment_settings) {
 
@@ -51,18 +51,18 @@ class FragmentSettings : Fragment(R.layout.fragment_settings) {
             when (chipGroup.checkedChipId) {
                 R.id.settings_chip_light_theme -> {
                     sharedPreferences.edit()
-                        .putInt(APP_PREFERENCES_NAME, Theme.LIGHT_THEME.themeRes)
+                        .putInt(APP_PREFERENCES_NAME, AppTheme.LIGHT_THEME.themeRes)
                         .apply()
                 }
 
                 R.id.settings_chip_dark_theme -> {
                     sharedPreferences.edit()
-                        .putInt(APP_PREFERENCES_NAME, Theme.DARK_THEME.themeRes).apply()
+                        .putInt(APP_PREFERENCES_NAME, AppTheme.DARK_THEME.themeRes).apply()
                 }
 
                 R.id.settings_chip_advanced_theme -> {
                     sharedPreferences.edit()
-                        .putInt(APP_PREFERENCES_NAME, Theme.ADVANCED_THEME.themeRes)
+                        .putInt(APP_PREFERENCES_NAME, AppTheme.ADVANCED_THEME.themeRes)
                         .apply()
                 }
             }

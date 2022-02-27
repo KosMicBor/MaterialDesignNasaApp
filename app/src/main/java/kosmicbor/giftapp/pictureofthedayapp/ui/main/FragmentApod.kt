@@ -4,8 +4,15 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.transition.ChangeBounds
+import android.transition.TransitionManager
 import android.view.View
+import android.view.animation.AnticipateOvershootInterpolator
 import androidx.annotation.RequiresApi
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -29,6 +36,7 @@ class FragmentApod : Fragment(R.layout.fragment_apod_start) {
 
     private val viewModel: ApodViewModel by viewModels()
     private lateinit var adapter: ViewPagerAdapter
+    private val handler = Handler(Looper.myLooper() ?: Looper.getMainLooper())
     private var dataFromServerList = mutableListOf<ApodDayData>()
     private val viewPager by lazy {
         binding.apodViewPager
@@ -36,11 +44,17 @@ class FragmentApod : Fragment(R.layout.fragment_apod_start) {
     private val binding: FragmentApodBinding by viewBinding(
         FragmentApodBinding::bind
     )
+
     private val listOfDays = listOf(TODAY, YESTERDAY, DAY_BEFORE_YESTERDAY)
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if (savedInstanceState == null) {
+
+        }
+
         setHasOptionsMenu(true)
         openWikipediaOnClick()
         setViewPager()
@@ -73,8 +87,11 @@ class FragmentApod : Fragment(R.layout.fragment_apod_start) {
     }
 
     private fun openWikipediaOnClick() {
+
+
         binding.apply {
             wikiButton.setOnClickListener {
+
                 startActivity(Intent(Intent.ACTION_VIEW).apply {
                     data =
                         Uri.parse(
@@ -89,8 +106,11 @@ class FragmentApod : Fragment(R.layout.fragment_apod_start) {
     private fun renderData(data: AppState) {
         when (data) {
             is AppState.Success<*> -> {
-
                 binding.apodProgressbar.viewHide()
+
+                handler.post{
+                    showComponents()
+                }
 
                 val serverResponseData = data.value as ApodDTO
                 val url = serverResponseData.url
@@ -113,11 +133,11 @@ class FragmentApod : Fragment(R.layout.fragment_apod_start) {
                         adapter.updateData(sortedData)
                         setTabLayout(sortedData)
                     }
-
                 }
             }
 
             is AppState.Error -> {
+
                 binding.apply {
 
                     root.showSnackBar(
@@ -137,5 +157,19 @@ class FragmentApod : Fragment(R.layout.fragment_apod_start) {
                 binding.apodProgressbar.viewShow()
             }
         }
+    }
+
+    private fun showComponents() {
+
+        val container: ConstraintLayout = binding.apodMainContainer
+        val constraintSet = ConstraintSet()
+        constraintSet.clone(context, R.layout.fragment_apod)
+
+        val transition = ChangeBounds()
+        transition.interpolator = AnticipateOvershootInterpolator(1.0f)
+        transition.duration = 1000
+
+        TransitionManager.beginDelayedTransition(container, transition)
+        constraintSet.applyTo(container)
     }
 }
