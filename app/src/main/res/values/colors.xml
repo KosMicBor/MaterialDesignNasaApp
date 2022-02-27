@@ -9,8 +9,17 @@
     <color name="white">#FFFFFFFF</color>
     <color name="royal_blue">#4169e1</color>
     <color name="royal_blue_dark">#273f87</color>
+    <color name="blue">#42a5f5</color>
+    <color name="light_blue">#80d6ff</color>
     <color name="bg_white">#f6f6fa</color>
     <color name="line_gray">#663b4351</color>
     <color name="main_text_color_black">#000</color>
     <color name="orange">#ff9900</color>
+    <color name="primary_gray">#424242</color>
+    <color name="secondary_gray">#1b1b1b</color>
+    <color name="mars_prime">#f9952a</color>
+    <color name="mars_secondary">#c06600</color>
+    <color name="mars_assert">#ffc65c</color>
+    <color name="mars_assert_dark">#f79a41</color>
+
 </resources>
