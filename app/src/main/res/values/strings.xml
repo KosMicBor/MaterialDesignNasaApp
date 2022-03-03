@@ -37,4 +37,6 @@
     <string name="camera_id_label">Camera ID:</string>
     <string name="camera_full_name_label">Camera full name:</string>
     <string name="app_start_note">Swipe to the left to start</string>
+    <string name="favorites">Favorites</string>
+    <string name="filter_btn_title">Filter by:</string>
 </resources>

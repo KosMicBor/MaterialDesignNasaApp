@@ -155,4 +155,14 @@
         <item name="strokeWidth">@dimen/wiki_btn_stroke_width</item>
     </style>
 
+    <style name="favorites_fab_style">
+        <item name="android:layout_margin">@dimen/margin_16dp</item>
+        <item name="android:src">@drawable/ic_baseline_filter_alt_24</item>
+        <item name="android:contentDescription">@string/filter_btn_title</item>
+        <item name="android:elevation">@dimen/favorite_fab_elevation</item>
+        <item name="pressedTranslationZ">@dimen/favorite_fab_transition_z</item>
+        <item name="android:tint">?colorOnSecondary</item>
+        <item name="android:layout_gravity">end|bottom</item>
+    </style>
+
 </resources>

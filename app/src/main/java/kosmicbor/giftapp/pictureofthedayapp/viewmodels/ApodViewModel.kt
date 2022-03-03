@@ -6,6 +6,9 @@ import androidx.lifecycle.ViewModel
 import kosmicbor.giftapp.pictureofthedayapp.BuildConfig
 import kosmicbor.giftapp.pictureofthedayapp.domain.apod.ApodRepositoryImpl
 import kosmicbor.giftapp.pictureofthedayapp.domain.apod.ApodDTO
+import kosmicbor.giftapp.pictureofthedayapp.domain.app.NasaApp
+import kosmicbor.giftapp.pictureofthedayapp.domain.favorites.FavoriteItem
+import kosmicbor.giftapp.pictureofthedayapp.domain.favorites.FavoritesLocalRepoImpl
 import kosmicbor.giftapp.pictureofthedayapp.utils.AppState
 import retrofit2.Call
 import retrofit2.Callback

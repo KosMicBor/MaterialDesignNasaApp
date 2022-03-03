@@ -1,4 +1,4 @@
-package kosmicbor.giftapp.pictureofthedayapp.ui.main
+package kosmicbor.giftapp.pictureofthedayapp.ui.main.epic_screen
 
 import android.annotation.SuppressLint
 import android.os.Build
@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.request.ImageRequest
 import coil.request.ImageResult
-import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerFrameLayout
 import kosmicbor.giftapp.pictureofthedayapp.R
 import kosmicbor.giftapp.pictureofthedayapp.utils.EquilateralImageView

@@ -1,4 +1,4 @@
-package kosmicbor.giftapp.pictureofthedayapp.ui.main
+package kosmicbor.giftapp.pictureofthedayapp.ui.main.settings_screen
 
 import android.content.Context
 import android.content.SharedPreferences

@@ -12,13 +12,14 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.textfield.TextInputEditText
 import kosmicbor.giftapp.pictureofthedayapp.domain.AppTheme
-import kosmicbor.giftapp.pictureofthedayapp.ui.main.FragmentApod
-import kosmicbor.giftapp.pictureofthedayapp.ui.main.FragmentEpic
-import kosmicbor.giftapp.pictureofthedayapp.ui.main.FragmentMars
-import kosmicbor.giftapp.pictureofthedayapp.ui.main.FragmentSettings
+import kosmicbor.giftapp.pictureofthedayapp.ui.main.apod_screen.FragmentApod
+import kosmicbor.giftapp.pictureofthedayapp.ui.main.epic_screen.FragmentEpic
+import kosmicbor.giftapp.pictureofthedayapp.ui.main.favorites_screen.FragmentFavorites
+import kosmicbor.giftapp.pictureofthedayapp.ui.main.mars_screen.FragmentMars
+import kosmicbor.giftapp.pictureofthedayapp.ui.main.settings_screen.FragmentSettings
 import kosmicbor.giftapp.pictureofthedayapp.utils.replaceFragment
 
-class MainActivity : AppCompatActivity(R.layout.main_activity) {
+class MainActivity : AppCompatActivity() {
 
     companion object {
         private const val APP_PREFERENCES = "APP_PREFERENCES"
@@ -58,6 +59,7 @@ class MainActivity : AppCompatActivity(R.layout.main_activity) {
             }
         }
         setAppTheme()
+        setContentView(R.layout.main_activity)
 
         if (savedInstanceState == null) {
             replaceFragment(
@@ -95,6 +97,16 @@ class MainActivity : AppCompatActivity(R.layout.main_activity) {
                         true
                     }
 
+                    R.id.bottom_nav_view_favorites -> {
+                        replaceFragment(
+                            supportFragmentManager,
+                            R.id.container,
+                            FragmentFavorites.newInstance(),
+                            "favorites"
+                        )
+                        true
+                    }
+
                     R.id.bottom_nav_bar_earth -> {
                         replaceFragment(
                             supportFragmentManager,
@@ -114,6 +126,7 @@ class MainActivity : AppCompatActivity(R.layout.main_activity) {
                         )
                         true
                     }
+
                     else -> {
                         throw Exception(context.getString(R.string.bottom_menu_item_error))
                     }
@@ -137,15 +150,15 @@ class MainActivity : AppCompatActivity(R.layout.main_activity) {
             val view = currentFocus
 
             if (view is TextInputEditText) {
-                val outRect = Rect();
-                view.getGlobalVisibleRect(outRect);
+                val outRect = Rect()
+                view.getGlobalVisibleRect(outRect)
                 if (!outRect.contains(ev.rawX.toInt(), ev.rawY.toInt())) {
-                    view.clearFocus();
+                    view.clearFocus()
                     val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0)
                 }
             }
         }
-        return super.dispatchTouchEvent(ev);
+        return super.dispatchTouchEvent(ev)
     }
 }

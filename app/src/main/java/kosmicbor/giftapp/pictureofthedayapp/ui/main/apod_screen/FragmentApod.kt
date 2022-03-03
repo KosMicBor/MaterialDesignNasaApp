@@ -1,4 +1,4 @@
-package kosmicbor.giftapp.pictureofthedayapp.ui.main
+package kosmicbor.giftapp.pictureofthedayapp.ui.main.apod_screen
 
 import android.content.Intent
 import android.net.Uri
@@ -50,10 +50,6 @@ class FragmentApod : Fragment(R.layout.fragment_apod_start) {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        if (savedInstanceState == null) {
-
-        }
 
         setHasOptionsMenu(true)
         openWikipediaOnClick()
@@ -163,7 +159,7 @@ class FragmentApod : Fragment(R.layout.fragment_apod_start) {
 
         val container: ConstraintLayout = binding.apodMainContainer
         val constraintSet = ConstraintSet()
-        constraintSet.clone(context, R.layout.fragment_apod)
+        constraintSet.clone(requireActivity(), R.layout.fragment_apod)
 
         val transition = ChangeBounds()
         transition.interpolator = AnticipateOvershootInterpolator(1.0f)

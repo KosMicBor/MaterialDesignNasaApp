@@ -1,4 +1,4 @@
-package kosmicbor.giftapp.pictureofthedayapp.ui.main
+package kosmicbor.giftapp.pictureofthedayapp.ui.main.mars_screen
 
 import android.annotation.SuppressLint
 import android.os.Build

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/favorites_rv_item_card_view"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/favorites_cardview_height"
+    android:layout_gravity="center"
+    android:layout_margin="@dimen/favorites_cardview_margin"
+    android:backgroundTint="?appWindowBackground"
+    android:elevation="@dimen/favorites_cardview_elevation"
+    card_view:cardCornerRadius="@dimen/favorites_cardview_corner_radius">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/favorites_rv_item_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/favorites_rv_item_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/favorites_rv_item_date_margin"
+            android:textColor="?colorOnSecondary"
+            android:textSize="@dimen/favorites_rv_item_date_text_size"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            tools:text="2022-03-02" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/remove_favorite_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/remove_favorite_btn_margin"
+            android:background="@drawable/ic_baseline_remove_circle_outline_24"
+            android:backgroundTint="?colorOnSecondary"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toTopOf="@id/favorites_rv_item_date" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/favorites_rv_item_image"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="@dimen/_0dp"
+            android:scaleType="centerCrop"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@id/favorites_rv_item_date" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

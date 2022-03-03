@@ -14,6 +14,8 @@ import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.snackbar.Snackbar
+import kosmicbor.giftapp.pictureofthedayapp.domain.favorites.FavoriteItem
+import kosmicbor.giftapp.pictureofthedayapp.domain.room.FavoritesEntity
 import java.time.LocalDateTime
 import java.time.Period
 import java.time.format.DateTimeFormatter
@@ -97,6 +99,34 @@ fun zoomImage(image: ImageView, container: ViewGroup, expandFlag: Boolean) {
             } else {
                 ImageView.ScaleType.FIT_CENTER
             }
-        Log.d("IMAGE", image.layoutParams.toString())
     }
+}
+
+fun convertEntityToFavoritesList(entityList: List<FavoritesEntity>): List<FavoriteItem> {
+    return entityList.map {
+        FavoriteItem(
+            date = it.date,
+            title = it.title,
+            description = it.description,
+            imageUrl = it.imageUrl
+        )
+    }
+}
+
+fun convertFavoriteItemToEntity(item: FavoriteItem): FavoritesEntity {
+    return FavoritesEntity(
+        date = item.date,
+        title = item.title,
+        description = item.description,
+        imageUrl = item.imageUrl
+    )
+}
+
+fun convertEntityToFavoriteItem(entity: FavoritesEntity): FavoriteItem {
+    return FavoriteItem(
+        date = entity.date,
+        title = entity.title,
+        description = entity.description,
+        imageUrl = entity.imageUrl
+    )
 }
