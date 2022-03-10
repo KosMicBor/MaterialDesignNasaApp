@@ -39,4 +39,5 @@
     <dimen name="favorites_rv_item_date_margin">8dp</dimen>
     <dimen name="favorites_rv_item_date_text_size">24sp</dimen>
     <dimen name="remove_favorite_btn_margin">4dp</dimen>
+    <dimen name="themes_desc_padding">16dp</dimen>
 </resources>
