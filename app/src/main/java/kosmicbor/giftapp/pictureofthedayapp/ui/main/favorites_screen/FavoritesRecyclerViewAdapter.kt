@@ -48,7 +48,7 @@ class FavoritesRecyclerViewAdapter(
                 error(R.drawable.ic_baseline_broken_image)
             }
             removeBtn.setOnClickListener {
-                removeItem(position)
+                removeItem(bindingAdapterPosition)
             }
         }
     }
@@ -56,7 +56,7 @@ class FavoritesRecyclerViewAdapter(
     private fun removeItem(position: Int) {
         val favoriteItem = favoritesList[position]
         favoritesList.removeAt(position)
-        removeListener.onRemove(favoriteItem)
+        removeListener.onRemove(favoriteItem, favoritesList.size)
         notifyItemRemoved(position)
     }
 
@@ -65,7 +65,7 @@ class FavoritesRecyclerViewAdapter(
     override fun itemMove(fromPosition: Int, toPosition: Int) {
         favoritesList.removeAt(fromPosition).apply {
             favoritesList.add(
-                if (fromPosition > toPosition) {
+                if (toPosition in 1 until fromPosition) {
                     toPosition - 1
                 } else {
                     toPosition
@@ -88,6 +88,6 @@ class FavoritesRecyclerViewAdapter(
     }
 
     interface FavoriteItemRemoveListener {
-        fun onRemove(item: FavoriteItem)
+        fun onRemove(item: FavoriteItem, size: Int)
     }
 }

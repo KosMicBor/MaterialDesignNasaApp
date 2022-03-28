@@ -4,7 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1755" />
+        <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/drawable/bottomsheet_bg.xml" value="0.112" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/drawable/divider_drawable.xml" value="0.165" />
+        <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/drawable/favorites_bg_empty.xml" value="0.186" />
+        <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/drawable/favorites_empty.xml" value="0.186" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.254" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/drawable/ic_baseline_broken_image.xml" value="0.254" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.1715" />
@@ -20,6 +23,7 @@
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/drawable/ic_wikipedia.xml" value="0.1715" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/drawable/launch_screen.xml" value="0.1685" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/drawable/nasa_background.xml" value="0.2105" />
+        <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/drawable/splach_screen_dot.xml" value="0.112" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/drawable/splash_screen.xml" value="0.163" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/font/roboto.xml" value="0.32592592592592595" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/activity_launch.xml" value="0.22" />
@@ -28,6 +32,7 @@
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/apod_fragment.xml" value="0.2609375" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/apod_fragment_image.xml" value="0.15520833333333334" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/epic_layout.xml" value="0.1546875" />
+        <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/favorites_empty_bg.xml" value="0.33177083333333335" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/favorites_recyclerview_item.xml" value="0.1" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/fragment_apod.xml" value="0.1" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/fragment_apod_image.xml" value="0.33" />
