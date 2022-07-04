@@ -1,5 +1,6 @@
-package kosmicbor.giftapp.pictureofthedayapp.ui.main
+package kosmicbor.giftapp.pictureofthedayapp.ui.main.apod_screen
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -24,6 +25,7 @@ class ViewPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
         return imageFragment
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateData(list: List<ApodDayData>) {
         data.addAll(list)
         notifyDataSetChanged()

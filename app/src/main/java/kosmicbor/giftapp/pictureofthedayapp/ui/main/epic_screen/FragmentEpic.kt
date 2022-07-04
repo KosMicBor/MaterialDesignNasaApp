@@ -1,14 +1,11 @@
-package kosmicbor.giftapp.pictureofthedayapp.ui.main
+package kosmicbor.giftapp.pictureofthedayapp.ui.main.epic_screen
 
 import android.os.Build
 import android.os.Bundle
-import android.transition.Fade
-import android.util.Log
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.transition.TransitionManager
 import androidx.viewpager2.widget.ViewPager2
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.snackbar.Snackbar
@@ -158,7 +155,7 @@ class FragmentEpic : Fragment(R.layout.fragment_epic) {
 
                     val month = imageDate.format(DateTimeFormatter.ofPattern("MM"))
 
-                    val url = "${BASE_IMAGE_URL}/${imageDate.year}/${month}/${
+                    val url = "$BASE_IMAGE_URL/${imageDate.year}/${month}/${
                         imageDate.dayOfMonth
                     }/png/${it.image}.png"
 

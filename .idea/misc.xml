@@ -4,9 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1755" />
+        <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/drawable/divider_drawable.xml" value="0.165" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.254" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/drawable/ic_baseline_broken_image.xml" value="0.254" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.1715" />
+        <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.2405" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.1715" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1715" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.1715" />
@@ -26,12 +28,16 @@
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/apod_fragment.xml" value="0.2609375" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/apod_fragment_image.xml" value="0.15520833333333334" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/epic_layout.xml" value="0.1546875" />
+        <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/favorites_recyclerview_item.xml" value="0.1" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/fragment_apod.xml" value="0.1" />
-        <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/fragment_apod_image.xml" value="0.15520833333333334" />
+        <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/fragment_apod_image.xml" value="0.33" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/fragment_apod_items.xml" value="0.15520833333333334" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/fragment_apod_start.xml" value="0.22" />
+        <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/fragment_blank.xml" value="0.18854166666666666" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/fragment_earth.xml" value="0.1" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/fragment_epic.xml" value="0.1" />
+        <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/fragment_favorites.xml" value="0.23796296296296296" />
+        <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/fragment_favotites.xml" value="0.33177083333333335" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/fragment_mars.xml" value="0.1" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/fragment_settings.xml" value="0.1" />
         <entry key="..\:/Programming/AndroidApps/MaterialDesign/Project/PictureOfTheDayApp/app/src/main/res/layout/main_activity.xml" value="0.1" />

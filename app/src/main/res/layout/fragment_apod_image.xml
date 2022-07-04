@@ -11,9 +11,7 @@
         android:id="@+id/apod_fragment_image_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
-        tools:context=".ui.main.FragmentApodImage">
-
+        tools:context=".ui.main.apod_screen.FragmentApodImage">
 
         <kosmicbor.giftapp.pictureofthedayapp.utils.EquilateralImageView
             android:id="@+id/apod_main_image"
@@ -21,10 +19,16 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/apod_image_margin"
             android:contentDescription="@string/main_pic_description"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            tools:src="@color/ic_launcher_background" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/apod_favorite_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/ic_baseline_favorite_border_24"
+            app:layout_anchor="@id/apod_main_image"
+            app:layout_anchorGravity="bottom|end" />
 
         <include layout="@layout/apod_bottom_sheet_layout" />
 

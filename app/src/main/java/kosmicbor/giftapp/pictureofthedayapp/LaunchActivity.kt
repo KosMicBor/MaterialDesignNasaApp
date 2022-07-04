@@ -21,20 +21,17 @@ class LaunchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_launch)
-
-
-
         handler.postDelayed({
             startActivity(Intent(this@LaunchActivity, MainActivity::class.java))
             finish()
-            this.overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+            this.overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
         }, SPLASH_SCREEN)
     }
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
-        hideStatusBarAllVersions();
+        hideStatusBarAllVersions()
     }
 
     @Suppress("DEPRECATION")

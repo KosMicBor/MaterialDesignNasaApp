@@ -30,4 +30,13 @@
     <dimen name="epic_appbar_layout_height">300dp</dimen>
     <dimen name="toolbar_text_size">18sp</dimen>
     <dimen name="launcher_activity_padding">16dp</dimen>
+    <dimen name="favorite_fab_elevation">6dp</dimen>
+    <dimen name="favorite_fab_transition_z">12dp</dimen>
+    <dimen name="favorites_cardview_height">300dp</dimen>
+    <dimen name="favorites_cardview_margin">5dp</dimen>
+    <dimen name="favorites_cardview_elevation">8dp</dimen>
+    <dimen name="favorites_cardview_corner_radius">4dp</dimen>
+    <dimen name="favorites_rv_item_date_margin">8dp</dimen>
+    <dimen name="favorites_rv_item_date_text_size">24sp</dimen>
+    <dimen name="remove_favorite_btn_margin">4dp</dimen>
 </resources>

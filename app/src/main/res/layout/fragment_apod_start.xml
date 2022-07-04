@@ -8,7 +8,7 @@
     android:background="?android:windowBackground"
     android:paddingStart="@dimen/apod_motion_layout_padding"
     android:paddingEnd="@dimen/apod_motion_layout_padding"
-    tools:context=".ui.main.FragmentApod">
+    tools:context=".ui.main.apod_screen.FragmentApod">
 
     <ProgressBar
         android:id="@+id/apod_progressbar"
