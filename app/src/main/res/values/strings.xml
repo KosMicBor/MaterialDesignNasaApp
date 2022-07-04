@@ -14,4 +14,27 @@
     <string name="chip_variant_today">TODAY</string>
     <string name="chip_variant_yesterday">YESTERDAY</string>
     <string name="chip_variant_day_before_yesterday">DAY BEFORE YESTERDAY</string>
+    <string name="fab_desc">ADD</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="chip_variant_light_theme">Light Theme</string>
+    <string name="chip_variant_dark_theme">Dark Theme</string>
+    <string name="chip_variant_alternative_theme">Alternative Theme</string>
+    <string name="theme_settings_title">Choose app theme</string>
+    <string name="theme_settings_apply_btn_text">apply</string>
+    <string name="apod">APOD</string>
+    <string name="bottom_menu_item_error">Wrong navigation menu item id</string>
+    <string name="earth_pic">Earth Images</string>
+    <string name="moon_pic">Moon Images</string>
+    <string name="mars_pic">Mars Images</string>
+    <string name="mars_screen_description">Images gathered by NASA\'s Curiosity, Opportunity, and Spirit rovers on Mars</string>
+    <string name="epic_manual_text">Push the action button to swipe between Earth and Moon Images</string>
+    <string name="epic_toolbar_title">Earth and Moon Gallery</string>
+    <string name="image_date_label">Image date:</string>
+    <string name="rover_id_label">Rover ID:</string>
+    <string name="rover_name_label">Rover name:</string>
+    <string name="rover_launch_date_label">Rover launch date:</string>
+    <string name="rover_landing_date_label">Rover landing date:</string>
+    <string name="camera_id_label">Camera ID:</string>
+    <string name="camera_full_name_label">Camera full name:</string>
+    <string name="app_start_note">Swipe to the left to start</string>
 </resources>

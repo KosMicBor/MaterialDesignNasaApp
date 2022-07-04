@@ -1,16 +1,83 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
-    <style name="Theme.PictureOfTheDayApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.PictureOfTheDayAppLight" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/royal_blue</item>
         <item name="colorPrimaryVariant">@color/royal_blue_dark</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorSecondary">@color/light_blue</item>
+        <item name="colorSecondaryVariant">@color/blue</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status and navigation bars color. -->
+        <item name="android:statusBarColor">?attr/appSBColor</item>
+        <item name="android:navigationBarColor">?attr/colorPrimary</item>
+        <!-- Customize your theme here. -->
+        <item name="android:colorBackground">?appWindowBackground</item>
+        <item name="themeTextColor">@color/black</item>
+        <item name="pullLinesColor">@color/line_gray</item>
+        <item name="chipsTextColor">@color/white</item>
+        <item name="inputFieldHintTextColor">?colorPrimary</item>
+        <item name="strokeDisabledColor">?colorPrimary</item>
+        <item name="inputFieldTextColor">@color/black</item>
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="appSBColor">@color/royal_blue_dark</item>
+        <item name="bnvIconCheckedColor">@color/white</item>
+        <item name="bnvIconColor">@color/white</item>
+        <item name="bnvBackgroundColor">?colorPrimary</item>
+        <item name="apodTabBackground">@color/white</item>
+        <item name="apodTabTextColor">?colorPrimary</item>
+        <item name="apodTabIndicatorColor">?colorPrimary</item>
+        <item name="fabColor">?colorSecondary</item>
+        <item name="fabIconColor">?colorOnSecondary</item>
+        <item name="appWindowBackground">@color/white</item>
+    </style>
+
+    <style name="Theme.PictureOfTheDayAppDark" parent="Theme.PictureOfTheDayAppLight">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/royal_blue_dark</item>
+        <item name="colorPrimaryVariant">@color/secondary_gray</item>
+        <!-- Secondary brand color. -->
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="appSBColor">@color/secondary_gray</item>
+        <!-- Customize your theme here. -->
+        <item name="appWindowBackground">@color/secondary_gray</item>
+        <item name="themeTextColor">@color/white</item>
+        <item name="pullLinesColor">@android:color/darker_gray</item>
+        <item name="inputFieldHintTextColor">@color/white</item>
+        <item name="strokeDisabledColor">@color/white</item>
+        <item name="inputFieldTextColor">@color/white</item>
+
+        <item name="apodTabBackground">?colorPrimaryVariant</item>
+        <item name="apodTabTextColor">@color/white</item>
+        <item name="apodTabIndicatorColor">@color/white</item>
+        <item name="fabColor">?colorOnSecondary</item>
+        <item name="fabIconColor">@color/black</item>
+    </style>
+
+    <style name="Theme.PictureOfTheDayAppAdvanced" parent="Theme.PictureOfTheDayAppLight">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/mars_prime</item>
+        <item name="colorPrimaryVariant">@color/mars_secondary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/mars_assert_dark</item>
+        <item name="colorSecondaryVariant">@color/mars_assert</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="appSBColor">@color/mars_secondary</item>
         <!-- Customize your theme here. -->
+        <item name="pullLinesColor">@android:color/darker_gray</item>
+        <item name="fabColor">@color/light_blue</item>
     </style>
+
+    <style name="SplashTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowActivityTransitions">true</item>
+        <!-- Customize window attr. -->
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
 </resources>

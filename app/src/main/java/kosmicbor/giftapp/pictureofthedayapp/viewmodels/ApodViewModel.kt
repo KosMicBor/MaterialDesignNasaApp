@@ -1,33 +1,22 @@
 package kosmicbor.giftapp.pictureofthedayapp.viewmodels
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import kosmicbor.giftapp.pictureofthedayapp.BuildConfig
-import kosmicbor.giftapp.pictureofthedayapp.domain.APODRepositoryImpl
-import kosmicbor.giftapp.pictureofthedayapp.domain.PictureOfTheDayDTO
+import kosmicbor.giftapp.pictureofthedayapp.domain.apod.ApodRepositoryImpl
+import kosmicbor.giftapp.pictureofthedayapp.domain.apod.ApodDTO
 import kosmicbor.giftapp.pictureofthedayapp.utils.AppState
-import kosmicbor.giftapp.pictureofthedayapp.utils.getDate
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PictureOfTheDayViewModel(
+class ApodViewModel(
     private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData(),
-    private val repository: APODRepositoryImpl = APODRepositoryImpl()
+    private val repository: ApodRepositoryImpl = ApodRepositoryImpl()
 ) : ViewModel() {
 
-    companion object {
-        private const val TODAY = 0
-    }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun getData(): LiveData<AppState> {
-        sendRequest(getDate(TODAY))
-        return liveDataToObserve
-    }
+    fun getData(): LiveData<AppState> = liveDataToObserve
 
     fun sendRequest(date: String) {
         liveDataToObserve.value = AppState.Loading(null)
@@ -37,11 +26,11 @@ class PictureOfTheDayViewModel(
             AppState.Error(Throwable("Yuo need the API key!"))
         } else {
             repository.getAPODRetrofit()
-                .getPictureOfTheDay(apiKey, date).enqueue(object : Callback<PictureOfTheDayDTO> {
+                .getPictureOfTheDay(apiKey, date).enqueue(object : Callback<ApodDTO> {
 
                     override fun onResponse(
-                        call: Call<PictureOfTheDayDTO>,
-                        response: Response<PictureOfTheDayDTO>
+                        call: Call<ApodDTO>,
+                        response: Response<ApodDTO>
                     ) {
                         if (response.isSuccessful) {
                             response.body()?.apply {
@@ -60,7 +49,7 @@ class PictureOfTheDayViewModel(
                         }
                     }
 
-                    override fun onFailure(call: Call<PictureOfTheDayDTO>, t: Throwable) {
+                    override fun onFailure(call: Call<ApodDTO>, t: Throwable) {
                         liveDataToObserve.value = AppState.Error(t)
                     }
                 })

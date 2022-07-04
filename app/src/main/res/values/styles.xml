@@ -1,4 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="apod_description_title_style">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?themeTextColor</item>
+        <item name="android:layout_marginTop">@dimen/apod_desc_title_margin</item>
+        <item name="android:paddingStart">@dimen/padding_10dp</item>
+        <item name="android:paddingEnd">@dimen/padding_10dp</item>
+    </style>
+
+    <style name="settings_titles_style">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?themeTextColor</item>
+        <item name="android:layout_marginTop">@dimen/apod_desc_title_margin</item>
+        <item name="android:layout_margin">@dimen/theme_settings_title_margin</item>
+        <item name="android:textSize">@dimen/settings_title_size</item>
+    </style>
+
+    <style name="earth_titles_style">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?themeTextColor</item>
+        <item name="android:padding">@dimen/epic_title_padding</item>
+        <item name="android:textSize">@dimen/settings_title_size</item>
+    </style>
+
+    <style name="apod_description_text_style">
+        <item name="android:textColor">?themeTextColor</item>
+        <item name="android:paddingStart">@dimen/padding_10dp</item>
+        <item name="android:paddingEnd">@dimen/padding_10dp</item>
+    </style>
+
+    <style name="apod_description_view_style">
+        <item name="android:layout_width">@dimen/bottom_sheet_line_width</item>
+        <item name="android:layout_height">@dimen/bottom_sheet_line_height</item>
+        <item name="android:layout_marginTop">@dimen/bottomsheet_view_margin</item>
+        <item name="android:background">?pullLinesColor</item>
+    </style>
+
+    <style name="apod_chip_choice" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:textColor">?chipsTextColor</item>
+        <item name="chipBackgroundColor">@color/chips_color</item>
+    </style>
+
+    <style name="settings_chip_choice" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="android:textColor">?chipsTextColor</item>
+        <item name="chipBackgroundColor">?colorPrimary</item>
+    </style>
+
+    <style name="progressbar_style">
+        <item name="android:indeterminateTint">?colorPrimary</item>
+    </style>
+
+    <style name="apod_input_text_layout_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/input_stroke_color</item>
+        <item name="android:textColorHint">?inputFieldHintTextColor</item>
+        <item name="endIconTint">?inputFieldHintTextColor</item>
+        <item name="hintTextColor">?inputFieldHintTextColor</item>
+        <item name="counterTextColor">?inputFieldHintTextColor</item>
+    </style>
+
+    <style name="apod_edit_text_style">
+        <item name="android:textColor">?inputFieldTextColor</item>
+    </style>
+
+    <style name="bottom_nav_view_style" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="android:background">?bnvBackgroundColor</item>
+        <item name="itemIconTint">@color/bnv_item_color</item>
+        <item name="itemTextColor">@color/bnv_item_color</item>
+    </style>
+
+    <style name="apod_tab_style" parent="Widget.Material3.TabLayout.Secondary">
+        <item name="android:background">?apodTabBackground</item>
+        <item name="tabTextColor">?apodTabTextColor</item>
+        <item name="tabIndicatorColor">?apodTabIndicatorColor</item>
+    </style>
+
+    <style name="mars_data_text_style">
+        <item name="android:textColor">?colorOnSecondary</item>
+
+    </style>
+
+    <style name="mars_data_label_style" parent="mars_data_text_style">
+        <item name="android:paddingEnd">@dimen/mars_data_label_padding</item>
+    </style>
+
+    <style name="mars_titles_style">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?themeTextColor</item>
+        <item name="android:padding">@dimen/mars_title_padding</item>
+        <item name="android:textSize">@dimen/settings_title_size</item>
+    </style>
+
+    <style name="epic_indicator">
+        <item name="android:layout_height">@dimen/indicator_height</item>
+        <item name="ci_drawable">?colorOnSecondary</item>
+        <item name="android:layout_marginTop">@dimen/margin_16dp</item>
+    </style>
+
+    <style name="mars_indicator">
+        <item name="android:layout_height">@dimen/indicator_height</item>
+        <item name="ci_drawable">?colorOnSecondary</item>
+        <item name="ci_margin">@dimen/indicator_custom_margin</item>
+        <item name="android:layout_margin">@dimen/margin_16dp</item>
+    </style>
+
+    <style name="epic_toolbar_title_style" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/toolbar_text_size</item>
+    </style>
+
+    <style name="epic_fab_style">
+        <item name="android:backgroundTint">?fabColor</item>
+        <item name="srcCompat">@drawable/ic_moon_icon</item>
+        <item name="elevation">@dimen/_0dp</item>
+        <item name="tint">?fabIconColor</item>
+    </style>
+
+    <style name="epic_appbar_layout_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/epic_appbar_layout_height</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+    </style>
+
+    <style name="epic_appbar_image_style">
+        <item name="android:layout_width">@dimen/epic_appbar_width</item>
+        <item name="android:layout_height">@dimen/epic_appbar_height</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:src">@drawable/ic_earth_to_moon</item>
+        <item name="layout_collapseMode">parallax</item>
+    </style>
+
+    <style name="epic_appbar_text_style">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:text">@string/epic_manual_text</item>
+        <item name="android:textAlignment">center</item>
+        <item name="layout_collapseMode">parallax</item>
+    </style>
+
+    <style name="wiki_btn_shape_style">
+        <item name="cornerSize">@dimen/wiki_btn_corner_size</item>
+    </style>
+
+    <style name="wiki_btn_style">
+        <item name="android:layout_marginEnd">@dimen/wiki_margin_end</item>
+        <item name="android:layout_marginBottom">@dimen/wiki_margin_bottom</item>
+        <item name="shapeAppearanceOverlay">@style/wiki_btn_shape_style</item>
+        <item name="contentPadding">@dimen/wiki_btn_content_padding</item>
+        <item name="strokeColor">?colorOnSecondary</item>
+        <item name="strokeWidth">@dimen/wiki_btn_stroke_width</item>
+    </style>
+
 </resources>

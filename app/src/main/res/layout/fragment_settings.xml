@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?android:windowBackground"
+        tools:context=".ui.main.FragmentSettings">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/theme_settings_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/settings_titles_style"
+            android:text="@string/theme_settings_title"
+            app:layout_constraintBottom_toTopOf="@id/settings_chip_group"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/settings_chip_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/theme_settings_title"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/settings_chip_light_theme"
+                style="@style/settings_chip_choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_variant_light_theme" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/settings_chip_dark_theme"
+                style="@style/settings_chip_choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_variant_dark_theme" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/settings_chip_advanced_theme"
+                style="@style/settings_chip_choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_variant_alternative_theme" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/theme_settings_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/theme_settings_apply_btn_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settings_chip_group" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+

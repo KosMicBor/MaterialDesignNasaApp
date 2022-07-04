@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.facebook.shimmer.ShimmerFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mars_layout_shimmer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/mars_data_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/mars_info_margin">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mars_image_date_label"
+        style="@style/mars_data_label_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/image_date_label"
+        app:layout_constraintBottom_toTopOf="@id/mars_rover_id_label"
+        app:layout_constraintRight_toLeftOf="@id/mars_image_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/mars_rover_name" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mars_image_date"
+        style="@style/mars_data_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/mars_image_date_label"
+        app:layout_constraintTop_toTopOf="@id/mars_image_date_label"
+        tools:text="mars_image_date" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mars_rover_id_label"
+        style="@style/mars_data_label_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rover_id_label"
+        app:layout_constraintRight_toLeftOf="@id/mars_rover_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mars_image_date_label" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mars_rover_id"
+        style="@style/mars_data_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/mars_rover_id_label"
+        app:layout_constraintTop_toTopOf="@id/mars_rover_id_label"
+        tools:text="mars_rover_id" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mars_rover_name_label"
+        style="@style/mars_data_label_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rover_name_label"
+        app:layout_constraintRight_toLeftOf="@id/mars_rover_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mars_rover_id_label" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mars_rover_name"
+        style="@style/mars_data_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/mars_rover_name_label"
+        app:layout_constraintTop_toTopOf="@id/mars_rover_name_label"
+        tools:text="mars_rover_name" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mars_camera_id_label"
+        style="@style/mars_data_label_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/camera_id_label"
+        app:layout_constraintRight_toLeftOf="@id/mars_camera_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mars_rover_name_label" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mars_camera_id"
+        style="@style/mars_data_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/mars_camera_id_label"
+        app:layout_constraintTop_toTopOf="@id/mars_camera_id_label"
+        tools:text="mars_camera_id" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:barrierMargin="@dimen/mars_barrier_margin"
+        app:constraint_referenced_ids="mars_image_date,mars_rover_id,mars_rover_name,mars_camera_id" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mars_rover_launch_date_label"
+        style="@style/mars_data_label_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rover_launch_date_label"
+        app:layout_constraintRight_toLeftOf="@id/mars_rover_launch_date"
+        app:layout_constraintStart_toEndOf="@id/barrier"
+        app:layout_constraintTop_toTopOf="@id/mars_rover_id_label" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mars_rover_launch_date"
+        style="@style/mars_data_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/mars_rover_launch_date_label"
+        app:layout_constraintTop_toTopOf="@id/mars_rover_launch_date_label"
+        tools:text="mars_rover_launch_date" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mars_rover_landing_date_label"
+        style="@style/mars_data_label_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rover_landing_date_label"
+        app:layout_constraintRight_toLeftOf="@id/mars_rover_launch_date"
+        app:layout_constraintStart_toEndOf="@id/barrier"
+        app:layout_constraintTop_toTopOf="@id/mars_rover_name_label" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mars_rover_landing_date"
+        style="@style/mars_data_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/mars_rover_landing_date_label"
+        app:layout_constraintTop_toTopOf="@id/mars_rover_landing_date_label"
+        tools:text="mars_rover_landing_date" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mars_camera_full_name_label"
+        style="@style/mars_data_label_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/camera_full_name_label"
+        app:layout_constraintRight_toLeftOf="@id/mars_camera_full_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mars_camera_id_label" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mars_camera_full_name"
+        style="@style/mars_data_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/mars_camera_full_name_label"
+        app:layout_constraintTop_toTopOf="@id/mars_camera_full_name_label"
+        tools:text="mars_camera_full_name" />
+
+    <kosmicbor.giftapp.pictureofthedayapp.utils.EquilateralImageView
+        android:id="@+id/mars_main_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/apod_image_margin"
+        android:contentDescription="@string/main_pic_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mars_camera_full_name_label" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.facebook.shimmer.ShimmerFrameLayout>
+
+
+
