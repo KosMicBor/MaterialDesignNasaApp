@@ -2,6 +2,7 @@ package kosmicbor.giftapp.pictureofthedayapp.ui.main.favorites_screen
 
 import android.os.Bundle
 import android.view.View
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -29,6 +30,7 @@ class FragmentFavorites : Fragment(R.layout.fragment_favorites),
     private val binding: FragmentFavoritesBinding by viewBinding()
     private lateinit var favoritesList: MutableList<FavoriteItem>
     private lateinit var favoritesAdapter: FavoritesRecyclerViewAdapter
+    private lateinit var includedBackgroundLayout: ConstraintLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +42,9 @@ class FragmentFavorites : Fragment(R.layout.fragment_favorites),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        includedBackgroundLayout =
+            binding.root.findViewById(R.id.favorites_empty_bg_container)
+
         viewModel.getdata().observe(viewLifecycleOwner) {
             fillList(it)
         }
@@ -49,6 +54,9 @@ class FragmentFavorites : Fragment(R.layout.fragment_favorites),
         when (data) {
             is Success<*> -> {
                 favoritesList = data.value as MutableList<FavoriteItem>
+                if (favoritesList.isEmpty()) {
+                    includedBackgroundLayout.visibility = View.VISIBLE
+                }
                 val dividerItemDecoration = DividerItemDecoration(context, RecyclerView.VERTICAL)
 
                 context?.let {
@@ -99,7 +107,11 @@ class FragmentFavorites : Fragment(R.layout.fragment_favorites),
         }
     }
 
-    override fun onRemove(item: FavoriteItem) {
+    override fun onRemove(item: FavoriteItem, size: Int) {
         viewModel.removeFromFavorites(item)
+
+        if (size == 0) {
+            includedBackgroundLayout.visibility = View.VISIBLE
+        }
     }
 }

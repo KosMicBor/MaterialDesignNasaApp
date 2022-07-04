@@ -40,4 +40,7 @@
     <dimen name="favorites_rv_item_date_text_size">24sp</dimen>
     <dimen name="remove_favorite_btn_margin">4dp</dimen>
     <dimen name="themes_desc_padding">16dp</dimen>
+    <dimen name="bottomsheet_padding_start">16dp</dimen>
+    <dimen name="bottomsheet_padding_end">16dp</dimen>
+    <dimen name="bottomsheet_padding_margintop">4dp</dimen>
 </resources>

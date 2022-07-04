@@ -27,6 +27,14 @@ class FragmentApodImage : Fragment(R.layout.fragment_apod_image) {
 
     companion object {
         private const val VIEW_DATA = "VIEW_DATA"
+        private const val TITLE_BITMAP_WIDTH = 1000
+        private const val TITLE_BITMAP_HEIGHT = 150
+        private const val TITLE_TEXT_PAINT_SIZE = 60F
+        private const val VALUE_ZERO_FLOAT = 0F
+        private const val VALUE_TWO_FLOAT = 2F
+        private const val VALUE_FOUR_FLOAT = 4F
+        private const val TITLE_DRAW_START_ANGLE = 240F
+        private const val TITLE_DRAW_SWEEP_ANGLE = 180F
     }
 
     private val viewModel: ApodViewPagerItemViewModel by viewModels()
@@ -143,8 +151,8 @@ class FragmentApodImage : Fragment(R.layout.fragment_apod_image) {
     private fun drawTextOnPath(title: String?): Bitmap? {
 
         val bitmap = Bitmap.createBitmap(
-            1000,
-            150,
+            TITLE_BITMAP_WIDTH,
+            TITLE_BITMAP_HEIGHT,
             Bitmap.Config.ARGB_8888
         )
 
@@ -158,30 +166,30 @@ class FragmentApodImage : Fragment(R.layout.fragment_apod_image) {
         val textPaint = TextPaint().apply {
             isAntiAlias = true
             color = textColor
-            textSize = 60F
+            textSize = TITLE_TEXT_PAINT_SIZE
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
         }
 
-        val leftSize = canvas.width / 2F - textPaint.measureText(title)
-        val topSize = canvas.height / 2F
-        val rightSize = canvas.width / 2F + textPaint.measureText(title)
-        val bottomSize = canvas.height / 2F + canvas.height / 4F
+        val leftSize = canvas.width / VALUE_TWO_FLOAT - textPaint.measureText(title)
+        val topSize = canvas.height / VALUE_TWO_FLOAT
+        val rightSize = canvas.width / VALUE_TWO_FLOAT + textPaint.measureText(title)
+        val bottomSize = canvas.height / VALUE_TWO_FLOAT + canvas.height / VALUE_FOUR_FLOAT
 
         val enclosingRect = RectF(leftSize, topSize, rightSize, bottomSize)
 
         val path = Path()
         path.addArc(
             enclosingRect,
-            240F,
-            180F
+            TITLE_DRAW_START_ANGLE,
+            TITLE_DRAW_SWEEP_ANGLE
         )
 
         if (title != null) {
             canvas.drawTextOnPath(
                 title,
                 path,
-                0F,
-                0F,
+                VALUE_ZERO_FLOAT,
+                VALUE_ZERO_FLOAT,
                 textPaint
             )
         }
