@@ -1,6 +1,8 @@
 package kosmicbor.giftapp.pictureofthedayapp.ui.main.apod_screen
 
+import android.graphics.*
 import android.os.Bundle
+import android.text.TextPaint
 import android.util.Log
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -11,6 +13,8 @@ import coil.load
 import coil.request.ImageRequest
 import coil.request.ImageResult
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.color.MaterialColors
+import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.textview.MaterialTextView
 import kosmicbor.giftapp.pictureofthedayapp.R
 import kosmicbor.giftapp.pictureofthedayapp.databinding.FragmentApodImageBinding
@@ -29,8 +33,9 @@ class FragmentApodImage : Fragment(R.layout.fragment_apod_image) {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
     private var isExpanded: Boolean = false
-    private lateinit var bottomSheetTitle: MaterialTextView
+    private lateinit var bottomSheetTitle: ShapeableImageView
     private lateinit var bottomSheetDescription: MaterialTextView
+    private lateinit var bottomSheetContainer: ConstraintLayout
     private lateinit var responseData: ApodDayData
     private var isInFavorite = false
     private val binding: FragmentApodImageBinding by viewBinding(FragmentApodImageBinding::bind)
@@ -40,6 +45,7 @@ class FragmentApodImage : Fragment(R.layout.fragment_apod_image) {
 
         bottomSheetTitle = binding.root.findViewById(R.id.bottom_sheet_description_title)
         bottomSheetDescription = binding.root.findViewById(R.id.bottom_sheet_description)
+        bottomSheetContainer = binding.root.findViewById(R.id.bottom_sheet_container)
 
         setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
 
@@ -126,11 +132,61 @@ class FragmentApodImage : Fragment(R.layout.fragment_apod_image) {
                         }
                     }
 
-                    bottomSheetTitle.text = responseData.title
+                    bottomSheetTitle.setImageBitmap(drawTextOnPath(responseData.title))
+
                     bottomSheetDescription.text = responseData.description
                 }
             }
         }
+    }
+
+    private fun drawTextOnPath(title: String?): Bitmap? {
+
+        val bitmap = Bitmap.createBitmap(
+            1000,
+            150,
+            Bitmap.Config.ARGB_8888
+        )
+
+        val canvas = Canvas(bitmap)
+
+        val textColor = MaterialColors.getColor(
+            binding.root,
+            com.google.android.material.R.attr.colorPrimary
+        )
+
+        val textPaint = TextPaint().apply {
+            isAntiAlias = true
+            color = textColor
+            textSize = 60F
+            typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
+        }
+
+        val leftSize = canvas.width / 2F - textPaint.measureText(title)
+        val topSize = canvas.height / 2F
+        val rightSize = canvas.width / 2F + textPaint.measureText(title)
+        val bottomSize = canvas.height / 2F + canvas.height / 4F
+
+        val enclosingRect = RectF(leftSize, topSize, rightSize, bottomSize)
+
+        val path = Path()
+        path.addArc(
+            enclosingRect,
+            240F,
+            180F
+        )
+
+        if (title != null) {
+            canvas.drawTextOnPath(
+                title,
+                path,
+                0F,
+                0F,
+                textPaint
+            )
+        }
+
+        return bitmap
     }
 
     private fun setBottomSheetBehavior(bottomSheetLayout: ConstraintLayout) {
