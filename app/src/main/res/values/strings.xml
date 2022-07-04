@@ -36,4 +36,5 @@
     <string name="rover_landing_date_label">Rover landing date:</string>
     <string name="camera_id_label">Camera ID:</string>
     <string name="camera_full_name_label">Camera full name:</string>
+    <string name="app_start_note">Swipe to the left to start</string>
 </resources>

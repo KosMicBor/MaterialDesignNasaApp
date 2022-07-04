@@ -2,7 +2,7 @@ package kosmicbor.giftapp.pictureofthedayapp.domain
 
 import kosmicbor.giftapp.pictureofthedayapp.R
 
-enum class Theme (
+enum class AppTheme (
     val themeKey: String,
     val themeRes: Int
     ) {

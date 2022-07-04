@@ -1,14 +1,22 @@
 package kosmicbor.giftapp.pictureofthedayapp
 
 import android.content.Context
+import android.graphics.Rect
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.inputmethod.InputMethodManager
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kosmicbor.giftapp.pictureofthedayapp.domain.Theme
-import kosmicbor.giftapp.pictureofthedayapp.utils.Router
+import com.google.android.material.textfield.TextInputEditText
+import kosmicbor.giftapp.pictureofthedayapp.domain.AppTheme
+import kosmicbor.giftapp.pictureofthedayapp.ui.main.FragmentApod
+import kosmicbor.giftapp.pictureofthedayapp.ui.main.FragmentEpic
+import kosmicbor.giftapp.pictureofthedayapp.ui.main.FragmentMars
+import kosmicbor.giftapp.pictureofthedayapp.ui.main.FragmentSettings
+import kosmicbor.giftapp.pictureofthedayapp.utils.replaceFragment
 
 class MainActivity : AppCompatActivity(R.layout.main_activity) {
 
@@ -35,7 +43,7 @@ class MainActivity : AppCompatActivity(R.layout.main_activity) {
 
                 getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE).edit()
                     .putBoolean(APP_PREFERENCES_DARK_MODE, isThemeAlreadyChoosed)
-                    .putInt(APP_PREFERENCES_NAME, Theme.DARK_THEME.themeRes)
+                    .putInt(APP_PREFERENCES_NAME, AppTheme.DARK_THEME.themeRes)
                     .apply()
             }
 
@@ -45,15 +53,19 @@ class MainActivity : AppCompatActivity(R.layout.main_activity) {
                 isThemeAlreadyChoosed = false
                 getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE).edit()
                     .putBoolean(APP_PREFERENCES_DARK_MODE, isThemeAlreadyChoosed)
-                    .putInt(APP_PREFERENCES_NAME, Theme.LIGHT_THEME.themeRes)
+                    .putInt(APP_PREFERENCES_NAME, AppTheme.LIGHT_THEME.themeRes)
                     .apply()
-
             }
         }
         setAppTheme()
 
         if (savedInstanceState == null) {
-            Router.openApodFragment(supportFragmentManager)
+            replaceFragment(
+                supportFragmentManager,
+                R.id.container,
+                FragmentApod.newInstance(),
+                "APOD"
+            )
         }
 
         setBottomNavigationMenu()
@@ -64,22 +76,42 @@ class MainActivity : AppCompatActivity(R.layout.main_activity) {
             setOnItemSelectedListener { item ->
                 when (item.itemId) {
                     R.id.bottom_nav_bar_apod -> {
-                        Router.openApodFragment(supportFragmentManager)
+                        replaceFragment(
+                            supportFragmentManager,
+                            R.id.container,
+                            FragmentApod.newInstance(),
+                            "APOD"
+                        )
                         true
                     }
 
                     R.id.bottom_nav_view_settings -> {
-                        Router.openSettings(supportFragmentManager)
+                        replaceFragment(
+                            supportFragmentManager,
+                            R.id.container,
+                            FragmentSettings.newInstance(),
+                            "settings"
+                        )
                         true
                     }
 
                     R.id.bottom_nav_bar_earth -> {
-                        Router.openEarthFragment(supportFragmentManager)
+                        replaceFragment(
+                            supportFragmentManager,
+                            R.id.container,
+                            FragmentEpic.newInstance(),
+                            "earth"
+                        )
                         true
                     }
 
                     R.id.bottom_nav_bar_mars -> {
-                        Router.openMarsFragment(supportFragmentManager)
+                        replaceFragment(
+                            supportFragmentManager,
+                            R.id.container,
+                            FragmentMars.newInstance(),
+                            "mars"
+                        )
                         true
                     }
                     else -> {
@@ -94,8 +126,26 @@ class MainActivity : AppCompatActivity(R.layout.main_activity) {
     private fun setAppTheme() {
         val themeRes = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE).getInt(
             APP_PREFERENCES_NAME,
-            Theme.LIGHT_THEME.themeRes
+            AppTheme.LIGHT_THEME.themeRes
         )
+
         setTheme(themeRes)
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        if (ev?.action == MotionEvent.ACTION_DOWN) {
+            val view = currentFocus
+
+            if (view is TextInputEditText) {
+                val outRect = Rect();
+                view.getGlobalVisibleRect(outRect);
+                if (!outRect.contains(ev.rawX.toInt(), ev.rawY.toInt())) {
+                    view.clearFocus();
+                    val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                }
+            }
+        }
+        return super.dispatchTouchEvent(ev);
     }
 }

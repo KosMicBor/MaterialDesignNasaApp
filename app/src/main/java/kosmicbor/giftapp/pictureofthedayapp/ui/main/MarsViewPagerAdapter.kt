@@ -6,16 +6,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import coil.request.ImageRequest
+import coil.request.ImageResult
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.android.material.textview.MaterialTextView
 import kosmicbor.giftapp.pictureofthedayapp.R
 import kosmicbor.giftapp.pictureofthedayapp.domain.mars.MarsPhoto
 import kosmicbor.giftapp.pictureofthedayapp.utils.EquilateralImageView
+import kosmicbor.giftapp.pictureofthedayapp.utils.zoomImage
 
 class MarsViewPagerAdapter : RecyclerView.Adapter<MarsPagerViewHolder>() {
 
     private val dataList = mutableListOf<MarsPhoto>()
+    private var isExpanded = false
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MarsPagerViewHolder {
         val view: View =
@@ -36,8 +42,34 @@ class MarsViewPagerAdapter : RecyclerView.Adapter<MarsPagerViewHolder>() {
         val roverLaunchDate = dataList[position].rover?.launchDate
 
         holder.apply {
-            imageView.load(httpsUrl) {
-                error(R.drawable.ic_baseline_broken_image)
+            imageView.let { image ->
+                image.load(httpsUrl) {
+                    error(R.drawable.ic_baseline_broken_image)
+                    placeholder(R.drawable.ic_mars_icon)
+
+                    listener(object : ImageRequest.Listener {
+                        override fun onStart(request: ImageRequest) {
+                            holder.shimmer.apply {
+                                showShimmer(true)
+                            }
+
+                            super.onStart(request)
+                        }
+
+                        override fun onSuccess(request: ImageRequest, metadata: ImageResult.Metadata) {
+                            holder.shimmer.apply {
+                                stopShimmer()
+                                hideShimmer()
+                            }
+                            super.onSuccess(request, metadata)
+                        }
+
+                    })
+                }
+                image.setOnClickListener {
+                    isExpanded = !isExpanded
+                    zoomImage(image, container, isExpanded)
+                }
             }
             imageDateView.text = imageDate
             roverIdView.text = roverId.toString()
@@ -67,4 +99,6 @@ class MarsPagerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val cameraIdView: MaterialTextView = itemView.findViewById(R.id.mars_camera_id)
     val cameraFullNameView: MaterialTextView = itemView.findViewById(R.id.mars_camera_full_name)
     val imageView: EquilateralImageView = itemView.findViewById(R.id.mars_main_image)
+    val container: ConstraintLayout = itemView.findViewById(R.id.mars_data_container)
+    val shimmer: ShimmerFrameLayout = itemView.findViewById(R.id.mars_layout_shimmer)
 }
